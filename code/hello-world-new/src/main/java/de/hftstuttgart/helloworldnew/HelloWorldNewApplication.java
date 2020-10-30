@@ -27,7 +27,7 @@ public class HelloWorldNewApplication {
 
 	@GetMapping("/test/{name}")
 	public String sayHelloFromOtherEndpoint(@PathVariable String name){
-		_logger.info("This request has been called");
+		_logger.info("This request has been called {}", name);
 		return "Hello, from " + name;
 	}
 	

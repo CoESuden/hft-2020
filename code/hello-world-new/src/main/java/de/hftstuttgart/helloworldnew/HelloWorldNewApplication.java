@@ -3,6 +3,8 @@ package de.hftstuttgart.helloworldnew;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +18,8 @@ public class HelloWorldNewApplication {
 	
 	private static Collection<String> _randomStrings = new ArrayList<>();
 	
+	private Logger _logger =  LoggerFactory.getLogger(HelloWorldNewApplication.class);
+	
 	@GetMapping("/")
 	public String sayHello(){
 		return "Hello, Happy HfT Students!";
@@ -23,6 +27,7 @@ public class HelloWorldNewApplication {
 
 	@GetMapping("/test/{name}")
 	public String sayHelloFromOtherEndpoint(@PathVariable String name){
+		_logger.info("This request has been called");
 		return "Hello, from " + name;
 	}
 	

@@ -16,7 +16,7 @@ public class HelloWorldNewApplication {
 		return "Hello, Happy HfT Students!";
 	}
 
-	@GetMapping(value = "/test/{name}")
+	@GetMapping("/test/{name}")
 	public String sayHelloFromOtherEndpoint(@PathVariable String name){
 		return "Hello, from " + name;
 	}
